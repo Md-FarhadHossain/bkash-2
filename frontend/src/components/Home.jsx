@@ -7,6 +7,7 @@ const Home = () => {
         try {
             const { data } = await axios.post('http://localhost:5000/api/bkash/payment/create', { amount: 50, orderId: 1 }, { withCredentials: true })
             window.location.href = data.bkashURL
+            console.log(data)
         } catch (error) {
             console.log(error.response.data)
         }

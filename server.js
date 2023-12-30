@@ -11,6 +11,8 @@ app.use(cors({
     origin: 'http://localhost:5173',
     credentials: true
 }))
+
+
 dotEnv.config()
 app.use(body_parser.json())
 

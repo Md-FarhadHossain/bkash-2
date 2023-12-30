@@ -29,6 +29,7 @@ class paymentController {
             }, {
                 headers: await this.bkash_headers()
             })
+            console.log(data)
             return res.status(200).json({ bkashURL: data.bkashURL })
         } catch (error) {
             return res.status(401).json({ error: error.message })
@@ -47,6 +48,7 @@ class paymentController {
                 const { data } = await axios.post(process.env.bkash_execute_payment_url, { paymentID }, {
                     headers: await this.bkash_headers()
                 })
+                console.log(data)
                 if (data && data.statusCode === '0000') {
                     //const userId = globals.get('userId')
                     await paymentModel.create({
@@ -95,3 +97,4 @@ class paymentController {
 }
 
 module.exports = new paymentController()
+
